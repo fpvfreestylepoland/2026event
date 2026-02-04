@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regulamin Konkursu — FPV Freestyle Poland 2026</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="description" content="Zasady konkursu FPV Freestyle Poland 2026. Dołącz do nas i wygraj nagrody!" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            neon: {
+              green: 'rgb(189 255 0)'
+            },
+          },
+          boxShadow: {
+            glow: '0 0 20px rgba(57,255,20,0.35)',
+          },
+          backgroundImage: {
+            'grid-dark': 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; }
+    html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .hero-gradient {
+      background: radial-gradient(800px 400px at 10% 10%, rgba(57,255,20,0.08), transparent 60%),
+                  radial-gradient(700px 500px at 90% 20%, rgba(255,0,0,0.08), transparent 60%),
+                  linear-gradient(180deg, #0a0a0a 0%, #060606 100%);
+    }
+  </style>
+
+  <!-- Favicon & App Meta -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/favicon.svg" color="#39FF14">
+  <meta name="theme-color" content="#000000">
+</head>
+
+<body class="bg-black text-white antialiased">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/70 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded bg-white/5 border border-white/10 flex items-center justify-center shadow-glow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-neon-green">
+              <path d="M12 9a3 3 0 100 6 3 3 0 000-6z"/>
+              <path fill-rule="evenodd" d="M5.172 5.172a4 4 0 015.656 0l.707.707a1 1 0 001.414 0l.707-.707a4 4 0 015.657 5.656l-.707.707a1 1 0 000 1.414l.707.707a4 4 0 01-5.657 5.657l-.707-.707a1 1 0 00-1.414 0l-.707.707a4 4 0 01-5.656-5.657l.707-.707a1 1 0 000-1.414l-.707-.707a4 4 0 010-5.656z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <span class="font-extrabold tracking-widest text-sm">FPV</span>
+            <div class="text-xs text-white/70 -mt-0.5">FREESTYLE POLAND</div>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/#sponsors" class="hover:text-neon-green transition">Sponsorzy</a>
+          <a href="/#about" class="hover:text-neon-green transition">O wydarzeniu</a>
+          <a href="/#details" class="hover:text-neon-green transition">Szczegóły</a>
+          <a href="/#register" class="hover:text-neon-green transition">Rejestracja</a>
+          <a href="/#contact" class="hover:text-neon-green transition">Kontakt</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden p-2 rounded border border-white/10 hover:border-neon-green/50">
+          <span class="sr-only">Otwórz menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Nav -->
+    <nav id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-black/70">
+      <div class="px-4 py-3 space-y-2 text-sm">
+        <a href="/#about" class="block hover:text-neon-green">O wydarzeniu</a>
+        <a href="/#details" class="block hover:text-neon-green">Szczegóły</a>
+        <a href="/#register" class="block hover:text-neon-green">Rejestracja</a>
+        <a href="/#sponsors" class="block hover:text-neon-green">Sponsorzy</a>
+        <a href="/#contact" class="block hover:text-neon-green">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="hero-gradient min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-8">
+        Regulamin <span class="text-neon-green">Konkursu</span>
+      </h1>
+
+      <div class="prose prose-invert max-w-none space-y-12">
+        
+        <!-- INTRO -->
+        <section>
+          <p class="text-lg text-white/80 leading-relaxed">
+            Niniejszy dokument określa formalne zasady uczestnictwa, kwestie prawne oraz zasady przetwarzania danych w ramach konkursu FPV Freestyle Poland 2026.
+          </p>
+          <p class="mt-4 text-white/70">
+            Szczegółowy opis przebiegu konkursu, kategorii oraz nagród znajdziesz na <a href="/#contest" class="text-neon-green hover:underline font-medium">stronie głównej</a>.
+          </p>
+          <div class="mt-6 p-4 rounded-lg bg-neon-green/10 border border-neon-green/20 text-neon-green text-sm font-medium">
+            Ważne: Przesłanie zgłoszenia lub wzięcie udziału w konkursie na miejscu oznacza pełną akceptację niniejszego regulaminu.
+          </div>
+        </section>
+
+        <!-- PRAWA AUTORSKIE I RODO -->
+        <section class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold mb-4 italic text-neon-green">Prawa Autorskie i Wizerunek</h2>
+            <div class="text-sm text-white/70 space-y-4">
+              <p>
+                1. Uczestnik, przesyłając film konkursowy, oświadcza, że jest jego autorem i posiada do niego pełne prawa autorskie (zarówno osobiste, jak i majątkowe) oraz że film nie narusza praw osób trzecich.
+              </p>
+              <p>
+                2. Z chwilą przesłania filmu, <strong>uczestnik udziela organizatorowi nieodpłatnej, bezterminowej i nieograniczonej terytorialnie licencji</strong> na korzystanie z filmu w celach promocyjnych, informacyjnych oraz edukacyjnych.
+              </p>
+              <p>
+                3. Organizator ma prawo do publikacji filmów (lub ich fragmentów) w swoich kanałach social media (YouTube, Instagram, TikTok, Facebook), na stronie internetowej wydarzenia oraz do <strong>udostępniania ich sponsorom i partnerom wydarzenia</strong> w celu promocji sportu FPV i samego wydarzenia.
+              </p>
+              <p>
+                4. Uczestnicy biorący udział w konkursie na miejscu (część Live) wyrażają zgodę na nieodpłatne wykorzystanie swojego wizerunku utrwalonego podczas wydarzenia w materiałach foto/wideo organizatora.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-white/5">
+            <h2 class="text-2xl font-bold mb-4">Postanowienia Końcowe</h2>
+            <div class="text-sm text-white/70 space-y-4">
+              <p>
+                1. <strong>Odpowiedzialność:</strong> Organizator nie ponosi odpowiedzialności za szkody powstałe w wyniku działań uczestników podczas nagrywania filmów konkursowych. Każdy pilot lata na własną odpowiedzialność, zgodnie z przepisami prawa lotniczego.
+              </p>
+              <p>
+                2. <strong>RODO:</strong> Dane osobowe uczestników (imię, nazwisko, nick, e-mail) będą przetwarzane wyłącznie na potrzeby przeprowadzenia konkursu i wydania nagród. Administratorem danych jest organizator wydarzenia FPV Freestyle Poland.
+              </p>
+              <p>
+                3. <strong>Zmiany:</strong> Organizator zastrzega sobie prawo do zmiany regulaminu w sytuacjach wyjątkowych, o czym poinformuje na stronie głównej wydarzenia.
+              </p>
+              <p>
+                4. <strong>Rozstrzygnięcia:</strong> W sprawach nieuregulowanych regulaminem oraz w kwestiach spornych ostateczny głos należy do Organizatora.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      
+      <div class="mt-16 text-center">
+        <a href="/" class="inline-flex items-center gap-2 text-neon-green hover:underline">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Wróć do strony głównej
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative border-t border-white/10 bg-black/95">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded bg-white/5 border border-white/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-neon-green">
+              <path d="M12 9a3 3 0 100 6 3 3 0 000-6z"/>
+              <path fill-rule="evenodd" d="M5.172 5.172a4 4 0 015.656 0l.707.707a1 1 0 001.414 0l.707-.707a4 4 0 015.657 5.656l-.707.707a1 1 0 000 1.414l.707.707a4 4 0 01-5.657 5.657l-.707-.707a1 1 0 00-1.414 0l-.707.707a4 4 0 01-5.656-5.657l.707-.707a1 1 0 000-1.414l-.707-.707a4 4 0 010-5.656z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold text-sm">FPV FREESTYLE POLAND</div>
+            <div class="text-xs text-white/60">© 2026</div>
+          </div>
+        </div>
+        <div class="text-xs text-white/40">
+          Masz pytania? <a href="mailto:fpvfreestylepoland@gmail.com" class="hover:text-neon-green">Napisz do nas!</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
