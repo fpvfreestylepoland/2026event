@@ -1,0 +1,79 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FPV Silesia Poland 2026 Freestyle">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD75A"/>
+      <stop offset="1" stop-color="#F2A900"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#15161c"/>
+      <stop offset="1" stop-color="#050506"/>
+    </radialGradient>
+    <clipPath id="disc"><circle cx="256" cy="256" r="242"/></clipPath>
+  </defs>
+
+  <!-- badge -->
+  <circle cx="256" cy="256" r="250" fill="#050506"/>
+  <circle cx="256" cy="256" r="242" fill="url(#bg)" stroke="url(#gold)" stroke-width="6"/>
+  <circle cx="256" cy="256" r="226" fill="none" stroke="#FFC61A" stroke-width="1.5" stroke-opacity="0.35"/>
+
+  <g clip-path="url(#disc)">
+    <!-- skyline silhouette -->
+    <g fill="#12131a">
+      <rect x="60" y="182" width="26" height="60"/>
+      <rect x="92" y="160" width="20" height="82"/>
+      <rect x="118" y="192" width="30" height="50"/>
+      <rect x="330" y="176" width="24" height="66"/>
+      <rect x="360" y="150" width="18" height="92"/>
+      <rect x="384" y="196" width="34" height="46"/>
+      <rect x="424" y="172" width="22" height="70"/>
+    </g>
+
+    <!-- mine headframe tower (Silesia) -->
+    <g stroke="#f4f4f5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- legs -->
+      <path d="M232 214 L246 96"/>
+      <path d="M280 214 L266 96"/>
+      <!-- rear support leg -->
+      <path d="M310 214 L258 104"/>
+      <path d="M292 214 L258 104"/>
+      <!-- headhouse -->
+      <rect x="240" y="82" width="32" height="18" rx="2"/>
+      <!-- cross bracing -->
+      <path d="M240 128 L272 150 M272 128 L240 150"/>
+      <path d="M236 168 L276 192 M276 168 L236 192"/>
+    </g>
+    <!-- winding wheels -->
+    <circle cx="250" cy="102" r="9" fill="none" stroke="#FFC61A" stroke-width="4"/>
+    <circle cx="266" cy="102" r="9" fill="none" stroke="#FFC61A" stroke-width="4"/>
+
+    <!-- left wing (gold) -->
+    <g fill="url(#gold)">
+      <path d="M150 250 C120 244 92 250 70 266 C104 262 128 266 150 278 Z"/>
+      <path d="M156 272 C126 268 98 276 78 292 C110 286 134 290 156 300 Z"/>
+      <path d="M162 294 C136 292 112 300 96 314 C122 310 144 314 162 322 Z"/>
+    </g>
+    <!-- right wing (white / red) -->
+    <g fill="#f4f4f5">
+      <path d="M362 250 C392 244 420 250 442 266 C408 262 384 266 362 278 Z"/>
+      <path d="M356 272 C386 268 414 276 434 292 C402 286 378 290 356 300 Z"/>
+    </g>
+    <g fill="#E4222E">
+      <path d="M350 294 C376 292 400 300 416 314 C390 310 368 314 350 322 Z"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <g text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif">
+    <text x="256" y="300" font-size="66" font-weight="900" fill="#f4f4f5" letter-spacing="2">FPV</text>
+    <text x="256" y="350" font-size="48" font-weight="900" fill="url(#gold)" letter-spacing="3">SILESIA</text>
+    <text x="256" y="384" font-size="27" font-weight="800" fill="#E4222E" letter-spacing="8">POLAND</text>
+    <text x="256" y="420" font-size="26" font-weight="800" fill="#f4f4f5" letter-spacing="6">2026</text>
+  </g>
+
+  <!-- freestyle ribbon -->
+  <g text-anchor="middle" font-family="Arial, sans-serif">
+    <line x1="150" y1="450" x2="196" y2="450" stroke="#FFC61A" stroke-width="2"/>
+    <line x1="316" y1="450" x2="362" y2="450" stroke="#FFC61A" stroke-width="2"/>
+    <text x="256" y="457" font-size="22" font-weight="800" fill="#FFC61A" letter-spacing="6">FREESTYLE</text>
+  </g>
+</svg>

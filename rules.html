@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contest Rules — FPV Freestyle Poland 2026</title>
+  <title>Regulamin wydarzenia i RODO — FPV Silesia Poland 2026</title>
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
-  <meta name="description" content="FPV Freestyle Poland 2026 contest rules. Join us and win prizes!" />
+  <meta name="description" content="FPV Silesia Poland 2026 — regulamin wydarzenia, zasady uczestnictwa, wizerunek i przetwarzanie danych (RODO)." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -14,146 +14,144 @@
       theme: {
         extend: {
           colors: {
-            neon: {
-              green: 'rgb(189 255 0)'
-            },
+            ink: 'rgb(18 18 22)',
+            gold: 'rgb(240 176 0)',
+            amber: 'rgb(161 98 7)',
+            brandred: 'rgb(228 34 46)',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
           },
           boxShadow: {
-            glow: '0 0 20px rgba(57,255,20,0.35)',
+            card: '0 1px 2px rgba(18,18,22,0.04), 0 8px 24px rgba(18,18,22,0.06)',
           },
-          backgroundImage: {
-            'grid-dark': 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)',
-          }
         }
       }
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: dark; }
-    html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    .hero-gradient {
-      background: radial-gradient(800px 400px at 10% 10%, rgba(57,255,20,0.08), transparent 60%),
-                  radial-gradient(700px 500px at 90% 20%, rgba(255,0,0,0.08), transparent 60%),
-                  linear-gradient(180deg, #0a0a0a 0%, #060606 100%);
-    }
+    :root { color-scheme: light; }
+    html, body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .font-display { font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; }
   </style>
 
   <!-- Favicon & App Meta -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/favicon.svg" color="#39FF14">
-  <meta name="theme-color" content="#000000">
+  <link rel="mask-icon" href="/favicon.svg" color="#F0B000">
+  <meta name="theme-color" content="#ffffff">
 </head>
 
-<body class="bg-black text-white antialiased">
+<body class="bg-white text-ink antialiased">
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-black/70 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-black/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
         <a href="/" class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded bg-white/5 border border-white/10 flex items-center justify-center shadow-glow">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-neon-green">
-              <path d="M12 9a3 3 0 100 6 3 3 0 000-6z"/>
-              <path fill-rule="evenodd" d="M5.172 5.172a4 4 0 015.656 0l.707.707a1 1 0 001.414 0l.707-.707a4 4 0 015.657 5.656l-.707.707a1 1 0 000 1.414l.707.707a4 4 0 01-5.657 5.657l-.707-.707a1 1 0 00-1.414 0l-.707.707a4 4 0 01-5.656-5.657l.707-.707a1 1 0 000-1.414l-.707-.707a4 4 0 010-5.656z" clip-rule="evenodd"/>
-            </svg>
+          <div class="h-10 w-10 rounded-full ring-1 ring-black/10 bg-white overflow-hidden flex items-center justify-center p-1">
+            <img src="/images/logo-200.png" alt="Logo FPV Silesia Poland 2026 Freestyle" class="w-full h-full object-contain" />
           </div>
           <div class="leading-tight">
-            <span class="font-extrabold tracking-widest text-sm">FPV</span>
-            <div class="text-xs text-white/70 -mt-0.5">FREESTYLE POLAND</div>
+            <span class="font-display font-bold tracking-tight text-sm">FPV SILESIA</span>
+            <div class="text-[11px] text-neutral-500 -mt-0.5 tracking-wider">POLAND 2026 · FREESTYLE</div>
           </div>
         </a>
 
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="/#sponsors" class="hover:text-neon-green transition">Sponsors</a>
-          <a href="/#about" class="hover:text-neon-green transition">About</a>
-          <a href="/#details" class="hover:text-neon-green transition">Details</a>
-          <a href="/#register" class="hover:text-neon-green transition">Registration</a>
-          <a href="/#contact" class="hover:text-neon-green transition">Contact</a>
+        <nav class="hidden md:flex items-center gap-7 text-sm text-neutral-600">
+          <a href="/#about" class="hover:text-ink transition">O evencie</a>
+          <a href="/#details" class="hover:text-ink transition">Szczegóły</a>
+          <a href="/#location" class="hover:text-ink transition">Lokalizacja</a>
+          <a href="/#sponsors" class="hover:text-ink transition">Sponsorzy</a>
+          <a href="/#register" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-ink text-white font-medium hover:bg-black transition">Zapisz się</a>
         </nav>
 
-        <!-- Mobile menu button -->
-        <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden p-2 rounded border border-white/10 hover:border-neon-green/50">
-          <span class="sr-only">Open menu</span>
+        <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden p-2 rounded-lg border border-black/10 hover:border-black/30">
+          <span class="sr-only">Otwórz menu</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
       </div>
     </div>
-    <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-black/70">
-      <div class="px-4 py-3 space-y-2 text-sm">
-        <a href="/#about" class="block hover:text-neon-green">About</a>
-        <a href="/#details" class="block hover:text-neon-green">Details</a>
-        <a href="/#register" class="block hover:text-neon-green">Registration</a>
-        <a href="/#sponsors" class="block hover:text-neon-green">Sponsors</a>
-        <a href="/#contact" class="block hover:text-neon-green">Contact</a>
+    <nav id="mobileMenu" class="md:hidden hidden border-t border-black/5 bg-white">
+      <div class="px-4 py-3 space-y-1 text-sm">
+        <a href="/#about" class="block py-1.5 text-neutral-700 hover:text-ink">O evencie</a>
+        <a href="/#details" class="block py-1.5 text-neutral-700 hover:text-ink">Szczegóły</a>
+        <a href="/#location" class="block py-1.5 text-neutral-700 hover:text-ink">Lokalizacja</a>
+        <a href="/#sponsors" class="block py-1.5 text-neutral-700 hover:text-ink">Sponsorzy</a>
+        <a href="/#register" class="block py-1.5 font-medium text-ink">Zapisz się →</a>
       </div>
     </nav>
   </header>
 
   <!-- MAIN CONTENT -->
-  <main class="hero-gradient min-h-screen">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-8">
-        Contest <span class="text-neon-green">Rules</span>
+  <main class="min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <p class="text-sm font-semibold uppercase tracking-widest text-amber">Dokument</p>
+      <h1 class="font-display mt-3 text-4xl sm:text-5xl font-bold tracking-tight">
+        Regulamin wydarzenia i RODO
       </h1>
 
-      <div class="prose prose-invert max-w-none space-y-12">
+      <div class="mt-8 space-y-10">
 
         <!-- INTRO -->
         <section>
-          <p class="text-lg text-white/80 leading-relaxed">
-            This document sets out the formal terms of participation, legal matters, and data processing rules of the FPV Freestyle Poland 2026 contest.
+          <p class="text-lg text-neutral-700 leading-relaxed">
+            Niniejszy dokument określa zasady uczestnictwa w spotkaniu FPV Silesia Poland 2026 oraz zasady przetwarzania danych osobowych uczestników (RODO).
           </p>
-          <p class="mt-4 text-white/70">
-            A detailed description of the contest, categories, and prizes can be found on the <a href="/#contest" class="text-neon-green hover:underline font-medium">main page</a>.
+          <p class="mt-4 text-neutral-600">
+            Wszystkie informacje o wydarzeniu znajdziesz na <a href="/#about" class="text-ink font-medium underline decoration-gold/50 hover:decoration-ink">stronie głównej</a>.
           </p>
-          <div class="mt-6 p-4 rounded-lg bg-neon-green/10 border border-neon-green/20 text-neon-green text-sm font-medium">
-            Important: Submitting an entry or taking part in the on-site contest constitutes full acceptance of these rules.
+          <div class="mt-6 p-4 rounded-xl bg-gold/10 border border-gold/30 text-ink text-sm font-medium">
+            Ważne: Udział w wydarzeniu oznacza akceptację niniejszego regulaminu.
           </div>
         </section>
 
-        <!-- COPYRIGHT AND GDPR -->
-        <section class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-8">
+        <!-- TERMS -->
+        <section class="bg-neutral-50 border border-black/10 rounded-2xl p-6 sm:p-8 space-y-8 shadow-card">
           <div>
-            <h2 class="text-2xl font-bold mb-4 italic text-neon-green">Copyright and Image Rights</h2>
-            <div class="text-sm text-white/70 space-y-4">
+            <h2 class="font-display text-xl font-bold mb-4 text-ink">Uczestnictwo i bezpieczeństwo</h2>
+            <div class="text-sm text-neutral-700 space-y-4">
               <p>
-                1. By submitting a contest video, the participant declares that they are its author, hold full copyright (both moral and economic), and that the video does not infringe on the rights of third parties.
+                1. Spotkanie ma charakter nieformalny — nie jest to konkurs ani zawody. Uczestnictwo jest dobrowolne.
               </p>
               <p>
-                2. Upon submission, <strong>the participant grants the organizer a free, perpetual, and territorially unlimited license</strong> to use the video for promotional, informational, and educational purposes.
+                2. <strong>Odpowiedzialność:</strong> Każdy pilot lata na własną odpowiedzialność, zgodnie z obowiązującymi przepisami lotniczymi (m.in. rejestracja operatora oraz zasady lotów dronami). Organizator nie ponosi odpowiedzialności za szkody wynikające z działań uczestników.
               </p>
               <p>
-                3. The organizer has the right to publish the videos (or excerpts) on its social media channels (YouTube, Instagram, TikTok, Facebook), on the event website, and to <strong>share them with the event's sponsors and partners</strong> for the purpose of promoting the FPV sport and the event itself.
-              </p>
-              <p>
-                4. Participants taking part in the on-site (Live) contest consent to the free use of their image captured during the event in the organizer's photo and video materials.
+                3. Uczestnicy zobowiązują się do zachowania zasad bezpieczeństwa oraz stosowania się do wskazówek organizatora na terenie wydarzenia.
               </p>
             </div>
           </div>
 
-          <div class="pt-8 border-t border-white/5">
-            <h2 class="text-2xl font-bold mb-4">Final Provisions</h2>
-            <div class="text-sm text-white/70 space-y-4">
+          <div class="pt-8 border-t border-black/10">
+            <h2 class="font-display text-xl font-bold mb-4 text-ink">Wizerunek</h2>
+            <div class="text-sm text-neutral-700 space-y-4">
               <p>
-                1. <strong>Liability:</strong> The organizer is not liable for damages resulting from participants' actions while recording contest videos. Every pilot flies at their own responsibility, in accordance with applicable aviation regulations.
+                1. Podczas wydarzenia mogą powstawać zdjęcia i materiały wideo. Biorąc udział w spotkaniu, uczestnik wyraża zgodę na nieodpłatne wykorzystanie swojego wizerunku utrwalonego podczas wydarzenia w materiałach foto i wideo organizatora.
               </p>
               <p>
-                2. <strong>GDPR:</strong> Participants' personal data (first name, last name, nickname, email) will be processed solely for the purpose of running the contest and awarding prizes. The data controller is the organizer of the FPV Freestyle Poland event.
+                2. Organizator ma prawo publikować te materiały w swoich kanałach społecznościowych (YouTube, Instagram, TikTok, Facebook) oraz na stronie wydarzenia — w celu relacji i promocji spotkań FPV.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-black/10">
+            <h2 class="font-display text-xl font-bold mb-4 text-ink">RODO i postanowienia końcowe</h2>
+            <div class="text-sm text-neutral-700 space-y-4">
+              <p>
+                1. <strong>RODO:</strong> Dane osobowe podane przy zapisie (imię, ewentualnie nazwisko lub pseudonim oraz e-mail) będą przetwarzane wyłącznie w celu organizacji spotkania i kontaktu z uczestnikami. Administratorem danych jest organizator wydarzenia FPV Silesia Poland. Dane nie będą udostępniane podmiotom trzecim w celach marketingowych.
               </p>
               <p>
-                3. <strong>Changes:</strong> The organizer reserves the right to change the rules in exceptional cases, with notice posted on the event's main page.
+                2. <strong>Zmiany:</strong> Organizator zastrzega sobie prawo do zmiany terminu, miejsca lub zasad w wyjątkowych przypadkach (np. warunki pogodowe), z powiadomieniem zamieszczonym na stronie głównej wydarzenia.
               </p>
               <p>
-                4. <strong>Decisions:</strong> In matters not covered by these rules and in disputed matters, the final decision rests with the Organizer.
+                3. <strong>Decyzje:</strong> W sprawach nieuregulowanych niniejszym regulaminem oraz w kwestiach spornych ostateczna decyzja należy do Organizatora.
               </p>
             </div>
           </div>
@@ -161,35 +159,32 @@
 
       </div>
 
-      <div class="mt-16 text-center">
-        <a href="/" class="inline-flex items-center gap-2 text-neon-green hover:underline">
+      <div class="mt-14 text-center">
+        <a href="/" class="inline-flex items-center gap-2 text-ink font-medium hover:text-amber transition">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          Back to the main page
+          Powrót na stronę główną
         </a>
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="relative border-t border-white/10 bg-black/95">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <footer class="relative border-t border-black/5 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-3">
-          <div class="h-10 w-10 rounded bg-white/5 border border-white/10 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-neon-green">
-              <path d="M12 9a3 3 0 100 6 3 3 0 000-6z"/>
-              <path fill-rule="evenodd" d="M5.172 5.172a4 4 0 015.656 0l.707.707a1 1 0 001.414 0l.707-.707a4 4 0 015.657 5.656l-.707.707a1 1 0 000 1.414l.707.707a4 4 0 01-5.657 5.657l-.707-.707a1 1 0 00-1.414 0l-.707.707a4 4 0 01-5.656-5.657l.707-.707a1 1 0 000-1.414l-.707-.707a4 4 0 010-5.656z" clip-rule="evenodd"/>
-            </svg>
+          <div class="h-11 w-11 rounded-full ring-1 ring-black/10 bg-white overflow-hidden flex items-center justify-center p-1">
+            <img src="/images/logo-200.png" alt="Logo FPV Silesia Poland 2026 Freestyle" class="w-full h-full object-contain" />
           </div>
           <div>
-            <div class="font-semibold text-sm">FPV FREESTYLE POLAND</div>
-            <div class="text-xs text-white/60">© 2026</div>
+            <div class="font-display font-semibold text-sm">FPV SILESIA POLAND 2026</div>
+            <div class="text-xs text-neutral-500">© 2026</div>
           </div>
         </div>
-        <div class="text-xs text-white/40">
-          Got questions? <a href="mailto:fpvfreestylepoland@gmail.com" class="hover:text-neon-green">Email us!</a>
+        <div class="text-xs text-neutral-500">
+          Masz pytania? <a href="mailto:fpvsilesiapoland@gmail.com" class="text-ink hover:text-amber">Napisz do nas!</a>
         </div>
       </div>
     </div>
@@ -203,6 +198,7 @@
       btn.setAttribute('aria-expanded', String(!expanded));
       menu.classList.toggle('hidden');
     });
+    menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
   </script>
 </body>
 </html>
