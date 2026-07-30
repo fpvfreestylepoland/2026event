@@ -88,17 +88,18 @@
         </a>
 
         <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-7 text-sm text-neutral-600">
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-7 text-sm text-neutral-600">
           <a href="#about" class="hover:text-ink transition">O evencie</a>
           <a href="#details" class="hover:text-ink transition">Szczegóły</a>
           <a href="#location" class="hover:text-ink transition">Lokalizacja</a>
           <a href="#sponsors" class="hover:text-ink transition">Sponsorzy</a>
+          <a href="#rules" class="hover:text-ink transition">Regulamin</a>
           <a href="#contact" class="hover:text-ink transition">Kontakt</a>
           <a href="#register" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-ink text-white font-medium hover:bg-black transition">Zapisz się</a>
         </nav>
 
         <!-- Mobile menu button -->
-        <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden p-2 rounded-lg border border-black/10 hover:border-black/30">
+        <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" class="lg:hidden p-2 rounded-lg border border-black/10 hover:border-black/30">
           <span class="sr-only">Otwórz menu</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -107,12 +108,13 @@
       </div>
     </div>
     <!-- Mobile Nav -->
-    <nav id="mobileMenu" class="md:hidden hidden border-t border-black/5 bg-white">
+    <nav id="mobileMenu" class="lg:hidden hidden border-t border-black/5 bg-white">
       <div class="px-4 py-3 space-y-1 text-sm">
         <a href="#about" class="block py-1.5 text-neutral-700 hover:text-ink">O evencie</a>
         <a href="#details" class="block py-1.5 text-neutral-700 hover:text-ink">Szczegóły</a>
         <a href="#location" class="block py-1.5 text-neutral-700 hover:text-ink">Lokalizacja</a>
         <a href="#sponsors" class="block py-1.5 text-neutral-700 hover:text-ink">Sponsorzy</a>
+        <a href="#rules" class="block py-1.5 text-neutral-700 hover:text-ink">Regulamin</a>
         <a href="#contact" class="block py-1.5 text-neutral-700 hover:text-ink">Kontakt</a>
         <a href="#register" class="block py-1.5 font-medium text-ink">Zapisz się →</a>
       </div>
@@ -331,6 +333,84 @@
 
         <div class="h-28 rounded-2xl bg-white border border-black/10 overflow-hidden flex items-center justify-center p-6 hover:border-black/25 transition"><a href="https://betafpv.com/" target="_blank" class="flex items-center justify-center"><img src="/images/betafpv.png" alt="BETAFPV" loading="lazy" class="max-h-[30px] max-w-full w-auto object-contain opacity-70 hover:opacity-100 transition" /></a></div>
         <div class="h-28 rounded-2xl bg-white border border-black/10 overflow-hidden flex items-center justify-center p-6 hover:border-black/25 transition"><a href="https://geprc.com/" target="_blank" class="flex items-center justify-center"><img src="/images/geprc.png" alt="GEPRC" loading="lazy" class="max-h-[38px] max-w-full w-auto object-contain opacity-70 hover:opacity-100 transition" /></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RULES / SAFETY -->
+  <section id="rules" class="relative py-20 sm:py-24 border-t border-black/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-widest text-amber">Regulamin i bezpieczeństwo</p>
+      <h2 class="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight max-w-3xl">Kilka zasad, żeby było bezpiecznie i na luzie</h2>
+      <p class="mt-4 text-neutral-600 max-w-2xl">
+        Latamy dla frajdy, ale bezpieczeństwo jest najważniejsze. Zanim się zapiszesz, przejrzyj regulamin — wypełnienie formularza rejestracyjnego oznacza jego akceptację.
+      </p>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-5 items-stretch">
+        <!-- Image -->
+        <div class="relative rounded-2xl overflow-hidden border border-black/10 shadow-card min-h-[280px]">
+          <img src="/images/drone-flight.jpg" alt="Dron FPV freestyle w locie" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <p class="text-white font-display text-xl font-semibold">Bezpieczeństwo przede wszystkim</p>
+            <p class="text-white/80 text-sm mt-1 max-w-sm">Każdy pilot lata na własną odpowiedzialność, zgodnie z obowiązującymi przepisami lotniczymi.</p>
+          </div>
+        </div>
+
+        <!-- Key points -->
+        <div class="rounded-2xl border border-black/10 bg-white p-6 sm:p-7 shadow-card">
+          <h3 class="font-display text-lg font-semibold">Najważniejsze w skrócie</h3>
+          <ul class="mt-4 space-y-3.5 text-sm text-neutral-700">
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-gold/15 text-amber">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" /></svg>
+              </span>
+              <span><strong class="text-ink font-semibold">Uprawnienia i rejestracja.</strong> Pilot musi mieć uprawnienia oraz rejestrację operatora w systemie ULC, wymagane dla danej kategorii lotów.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-gold/15 text-amber">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+              </span>
+              <span><strong class="text-ink font-semibold">Ubezpieczenie OC.</strong> Do lotów FPV wymagane jest aktualne ubezpieczenie OC obejmujące szkody wyrządzone dronem.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-gold/15 text-amber">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+              </span>
+              <span><strong class="text-ink font-semibold">Wiek i opieka.</strong> Pełnoletni latają samodzielnie, 16–17 lat za pisemną zgodą opiekuna, młodsi tylko pod jego bezpośrednim nadzorem.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-gold/15 text-amber">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+              </span>
+              <span><strong class="text-ink font-semibold">Wyznaczone strefy lotów.</strong> Latamy tylko w wyznaczonych strefach — nigdy nad widownią, parkingiem czy osobami postronnymi.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-gold/15 text-amber">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+              </span>
+              <span><strong class="text-ink font-semibold">Trzeźwość za aparaturą.</strong> Żadnych lotów pod wpływem alkoholu lub środków obniżających sprawność.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-lg bg-gold/15 text-amber">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" /></svg>
+              </span>
+              <span><strong class="text-ink font-semibold">Zasada „zero śmieci".</strong> Sprzątamy po sobie i zabieramy wszystko, co przywieźliśmy — łącznie z uszkodzonymi LiPo.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA banner -->
+      <div class="mt-6 rounded-2xl border border-gold/30 bg-gold/10 p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+        <div>
+          <h3 class="font-display text-lg font-semibold text-ink">Pełny regulamin Spotkania</h3>
+          <p class="mt-1 text-sm text-neutral-600 max-w-xl">Wiek uczestników, zasady lotów, ubezpieczenie, odpowiedzialność, wizerunek oraz RODO — wszystko w jednym dokumencie.</p>
+        </div>
+        <a href="/rules.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-white font-semibold hover:bg-black transition shrink-0 self-start sm:self-auto">
+          Przeczytaj regulamin
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L11.22 6.08a.75.75 0 111.06-1.06l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 11-1.06-1.06l3.168-3.17H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
       </div>
     </div>
   </section>
