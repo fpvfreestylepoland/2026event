@@ -3,15 +3,41 @@
 
   var CONFIG = {
     dir: '/images/2026-08-09-bytom/',
-    count: 151,
-    preview: 18,
-    altPrefix: 'FPV Silesia Poland 2026, edycja letnia w Bytomiu — zdjęcie '
+    count: 151
   };
+
+  // The gallery is embedded on the Polish landing page and on the English
+  // recap page for partners, so every visible string is keyed off <html lang>.
+  var STRINGS = {
+    pl: {
+      dialog: 'Galeria zdjęć',
+      thumbs: 'Miniatury',
+      close: 'Zamknij (Esc)',
+      prev: 'Poprzednie zdjęcie',
+      next: 'Następne zdjęcie',
+      photo: 'Zdjęcie ',
+      alt: 'FPV Silesia Poland 2026, edycja letnia w Bytomiu — zdjęcie ',
+      of: ' z '
+    },
+    en: {
+      dialog: 'Photo gallery',
+      thumbs: 'Thumbnails',
+      close: 'Close (Esc)',
+      prev: 'Previous photo',
+      next: 'Next photo',
+      photo: 'Photo ',
+      alt: 'FPV Silesia Poland 2026 Summer Edition in Bytom — photo ',
+      of: ' of '
+    }
+  };
+
+  var T = STRINGS.pl;
+  var preview = CONFIG.count;
 
   function pad(n) { return ('00' + n).slice(-3); }
   function fullSrc(i) { return CONFIG.dir + pad(i + 1) + '.jpeg'; }
   function thumbSrc(i) { return CONFIG.dir + 'thumb/' + pad(i + 1) + '.jpeg'; }
-  function altText(i) { return CONFIG.altPrefix + (i + 1) + ' z ' + CONFIG.count; }
+  function altText(i) { return T.alt + (i + 1) + T.of + CONFIG.count; }
 
   var grid, moreBtn;
   var overlay = null, imgEl, counterEl, stripEl, stripThumbs = [];
@@ -28,7 +54,7 @@
       a.className =
         'group relative block aspect-square overflow-hidden rounded-lg border border-black/10 bg-neutral-100 ' +
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2';
-      if (i >= CONFIG.preview) a.classList.add('hidden');
+      if (i >= preview) a.classList.add('hidden');
       a.setAttribute('data-index', i);
 
       var img = document.createElement('img');
@@ -66,18 +92,18 @@
     o.className = 'lb';
     o.setAttribute('role', 'dialog');
     o.setAttribute('aria-modal', 'true');
-    o.setAttribute('aria-label', 'Galeria zdjęć');
+    o.setAttribute('aria-label', T.dialog);
     o.innerHTML =
       '<div class="lb-bar">' +
         '<span class="lb-counter" aria-live="polite"></span>' +
-        '<button type="button" class="lb-btn lb-close" aria-label="Zamknij (Esc)">&times;</button>' +
+        '<button type="button" class="lb-btn lb-close" aria-label="' + T.close + '">&times;</button>' +
       '</div>' +
       '<div class="lb-stage">' +
-        '<button type="button" class="lb-btn lb-nav lb-prev" aria-label="Poprzednie zdjęcie">&#8249;</button>' +
+        '<button type="button" class="lb-btn lb-nav lb-prev" aria-label="' + T.prev + '">&#8249;</button>' +
         '<img class="lb-img" alt="" />' +
-        '<button type="button" class="lb-btn lb-nav lb-next" aria-label="Następne zdjęcie">&#8250;</button>' +
+        '<button type="button" class="lb-btn lb-nav lb-next" aria-label="' + T.next + '">&#8250;</button>' +
       '</div>' +
-      '<div class="lb-strip" role="tablist" aria-label="Miniatury"></div>';
+      '<div class="lb-strip" role="tablist" aria-label="' + T.thumbs + '"></div>';
 
     imgEl = o.querySelector('.lb-img');
     counterEl = o.querySelector('.lb-counter');
@@ -104,7 +130,7 @@
       b.type = 'button';
       b.className = 'lb-thumb';
       b.setAttribute('data-index', i);
-      b.setAttribute('aria-label', 'Zdjęcie ' + (i + 1));
+      b.setAttribute('aria-label', T.photo + (i + 1));
 
       var img = document.createElement('img');
       img.src = thumbSrc(i);
@@ -250,10 +276,21 @@
     grid = document.getElementById('galleryGrid');
     if (!grid) return;
 
+    T = STRINGS[document.documentElement.lang === 'en' ? 'en' : 'pl'];
+
+    // data-preview="18" shows a teaser behind a "show all" button;
+    // without it every photo is rendered straight away.
+    var wanted = parseInt(grid.getAttribute('data-preview'), 10);
+    preview = wanted > 0 && wanted < CONFIG.count ? wanted : CONFIG.count;
+
     moreBtn = document.getElementById('galleryMore');
     injectStyles();
     buildGrid();
 
+    if (moreBtn && preview >= CONFIG.count) {
+      moreBtn.parentNode.removeChild(moreBtn);
+      moreBtn = null;
+    }
     if (moreBtn) moreBtn.addEventListener('click', revealAll);
 
     var countEls = document.querySelectorAll('[data-photo-count]');

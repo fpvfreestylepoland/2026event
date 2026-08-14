@@ -61,6 +61,8 @@
       background: linear-gradient(180deg, transparent 62%, rgba(240,176,0,0.45) 62%);
       padding: 0 0.1em;
     }
+    /* keep anchored headings clear of the sticky header */
+    section[id] { scroll-margin-top: 4.5rem; }
   </style>
 
   <script src="/gallery.js" defer></script>
@@ -322,6 +324,12 @@
       <p class="mt-4 text-neutral-600 max-w-3xl">
         <strong class="text-ink">9 sierpnia 2026</strong> spotkaliśmy się na kompleksie <strong class="text-ink">LKS Tempo Stolarzowice w Bytomiu</strong> — cały dzień latania freestyle, grill, rozmowy o sprzęcie i 42 pilotów na liście. Zobacz, jak było, i dołącz do nas jesienią.
       </p>
+      <p class="mt-3 text-sm">
+        <a href="/august-2026-recap.html" class="inline-flex items-center gap-1.5 font-medium text-ink hover:text-amber transition">
+          🇬🇧 Full recap in English for our partners
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L11.22 6.08a.75.75 0 111.06-1.06l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 11-1.06-1.06l3.168-3.17H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </p>
 
       <!-- Facts -->
       <dl class="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -381,7 +389,7 @@
           <p class="text-sm text-neutral-500">Kliknij zdjęcie, żeby otworzyć podgląd · ← → nawigacja · Esc zamyka</p>
         </div>
 
-        <div id="galleryGrid" class="mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-3">
+        <div id="galleryGrid" data-preview="18" class="mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-3">
           <noscript>
             <p class="col-span-full text-sm text-neutral-500">Włącz JavaScript, aby zobaczyć galerię zdjęć.</p>
           </noscript>
