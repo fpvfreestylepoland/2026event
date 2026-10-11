@@ -601,17 +601,33 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative rounded-3xl bg-gold text-ink px-8 py-12 sm:px-14 sm:py-16 text-center overflow-hidden">
         <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-white/25 blur-2xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-64 h-64 rounded-full bg-white/20 blur-2xl pointer-events-none"></div>
         <div class="relative">
-          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Wybierasz się? Zapisz się!</h2>
-          <p class="mt-4 text-ink/80 max-w-xl mx-auto">Rejestracja na Edycję Jesienną odbywa się przez krótki formularz online — wypełnij go, żeby dać znać, że będziesz. Dzięki temu lepiej przygotujemy teren i zostaniemy z Tobą w kontakcie.</p>
-          <p class="mt-2 text-ink/70 text-sm max-w-xl mx-auto">Spotykamy się w sobotę <strong class="font-semibold text-ink">17 października 2026</strong>, w godzinach <strong class="font-semibold text-ink">9:00–16:00</strong>.</p>
-          <div class="mt-8">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeyjDUnkiaaYSxr22hvXDHnnZCkYeLDIDayCUjYZrzFOsMVg/viewform" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-ink text-white font-semibold hover:bg-black transition">
-              Wypełnij formularz rejestracji
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h4a.75.75 0 010 1.5h-4z" clip-rule="evenodd" /><path fill-rule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z" clip-rule="evenodd" /></svg>
-            </a>
+          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ink text-white text-xs font-semibold uppercase tracking-widest">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" /></svg>
+            Rejestracja zamknięta
+          </span>
+          <h2 class="font-display mt-5 text-3xl sm:text-4xl font-bold tracking-tight">Rejestracja zakończona</h2>
+          <p class="mt-4 text-ink/80 max-w-xl mx-auto">Zapisy na Edycję Jesienną zostały zamknięte. Dziękujemy wszystkim, którzy się zarejestrowali — cieszymy się, że będziecie z nami!</p>
+
+          <div class="mt-8 inline-flex flex-col sm:flex-row items-stretch rounded-2xl bg-white/60 border border-ink/10 divide-y sm:divide-y-0 sm:divide-x divide-ink/10 text-left">
+            <div class="flex items-center gap-3 px-5 py-3.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-ink/60 shrink-0" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd" /></svg>
+              <div class="leading-tight">
+                <div class="text-[11px] uppercase tracking-widest text-ink/60">Termin</div>
+                <div class="font-semibold">sob. 17 października · 9:00–16:00</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-3.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-ink/60 shrink-0" aria-hidden="true"><path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" clip-rule="evenodd" /></svg>
+              <div class="leading-tight">
+                <div class="text-[11px] uppercase tracking-widest text-ink/60">Miejsce</div>
+                <div class="font-semibold">LKS Tempo Stolarzowice, Bytom</div>
+              </div>
+            </div>
           </div>
-          <p class="mt-4 text-sm text-ink/70">Masz pytania? Napisz na <a href="mailto:fpvsilesiapoland@gmail.com" class="font-medium underline decoration-ink/30 hover:decoration-ink">fpvsilesiapoland@gmail.com</a></p>
+
+          <p class="mt-8 text-sm text-ink/70 max-w-xl mx-auto">Jesteś na liście? Przed przyjazdem przejrzyj <a href="#rules" class="font-medium underline decoration-ink/30 hover:decoration-ink">regulamin</a>. Masz pytania? Napisz na <a href="mailto:fpvsilesiapoland@gmail.com" class="font-medium underline decoration-ink/30 hover:decoration-ink">fpvsilesiapoland@gmail.com</a></p>
         </div>
       </div>
     </div>
