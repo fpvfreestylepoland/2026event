@@ -1,13 +1,12 @@
 (function () {
   'use strict';
 
-  var CONFIG = {
-    dir: '/images/2026-08-09-bytom/',
-    count: 151
-  };
+  // Each gallery is a grid element with data-gallery-dir and data-gallery-count;
+  // photos are expected at <dir>NNN.jpeg with 480px thumbnails under <dir>thumb/.
+  // data-gallery-label names the edition in the photo alt text.
 
   // The gallery is embedded on the Polish landing page and on the English
-  // recap page for partners, so every visible string is keyed off <html lang>.
+  // recap pages for partners, so every visible string is keyed off <html lang>.
   var STRINGS = {
     pl: {
       dialog: 'Galeria zdjęć',
@@ -16,7 +15,8 @@
       prev: 'Poprzednie zdjęcie',
       next: 'Następne zdjęcie',
       photo: 'Zdjęcie ',
-      alt: 'FPV Silesia Poland 2026, edycja letnia w Bytomiu — zdjęcie ',
+      alt: 'FPV Silesia Poland 2026, ',
+      altSep: ' — zdjęcie ',
       of: ' z '
     },
     en: {
@@ -26,201 +26,228 @@
       prev: 'Previous photo',
       next: 'Next photo',
       photo: 'Photo ',
-      alt: 'FPV Silesia Poland 2026 Summer Edition in Bytom — photo ',
+      alt: 'FPV Silesia Poland 2026 ',
+      altSep: ' — photo ',
       of: ' of '
     }
   };
 
   var T = STRINGS.pl;
-  var preview = CONFIG.count;
 
   function pad(n) { return ('00' + n).slice(-3); }
-  function fullSrc(i) { return CONFIG.dir + pad(i + 1) + '.jpeg'; }
-  function thumbSrc(i) { return CONFIG.dir + 'thumb/' + pad(i + 1) + '.jpeg'; }
-  function altText(i) { return T.alt + (i + 1) + T.of + CONFIG.count; }
 
-  var grid, moreBtn;
-  var overlay = null, imgEl, counterEl, stripEl, stripThumbs = [];
-  var currentIndex = 0, lastFocused = null;
+  function createGallery(grid) {
+    var CONFIG = {
+      dir: grid.getAttribute('data-gallery-dir'),
+      count: parseInt(grid.getAttribute('data-gallery-count'), 10),
+      label: grid.getAttribute('data-gallery-label') || ''
+    };
+    var preview = CONFIG.count;
 
-  /* ---------- grid ---------- */
+    function fullSrc(i) { return CONFIG.dir + pad(i + 1) + '.jpeg'; }
+    function thumbSrc(i) { return CONFIG.dir + 'thumb/' + pad(i + 1) + '.jpeg'; }
+    function altText(i) { return T.alt + CONFIG.label + T.altSep + (i + 1) + T.of + CONFIG.count; }
 
-  function buildGrid() {
-    var frag = document.createDocumentFragment();
+    var moreBtn;
+    var overlay = null, imgEl, counterEl, stripEl, stripThumbs = [];
+    var currentIndex = 0, lastFocused = null;
 
-    for (var i = 0; i < CONFIG.count; i++) {
-      var a = document.createElement('a');
-      a.href = fullSrc(i);
-      a.className =
-        'group relative block aspect-square overflow-hidden rounded-lg border border-black/10 bg-neutral-100 ' +
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2';
-      if (i >= preview) a.classList.add('hidden');
-      a.setAttribute('data-index', i);
+    /* ---------- grid ---------- */
 
-      var img = document.createElement('img');
-      img.src = thumbSrc(i);
-      img.alt = altText(i);
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      img.className =
-        'w-full h-full object-cover transition duration-300 group-hover:scale-[1.04] group-hover:brightness-105';
+    function buildGrid() {
+      var frag = document.createDocumentFragment();
 
-      a.appendChild(img);
-      frag.appendChild(a);
-    }
+      for (var i = 0; i < CONFIG.count; i++) {
+        var a = document.createElement('a');
+        a.href = fullSrc(i);
+        a.className =
+          'group relative block aspect-square overflow-hidden rounded-lg border border-black/10 bg-neutral-100 ' +
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2';
+        if (i >= preview) a.classList.add('hidden');
+        a.setAttribute('data-index', i);
 
-    grid.appendChild(frag);
+        var img = document.createElement('img');
+        img.src = thumbSrc(i);
+        img.alt = altText(i);
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.className =
+          'w-full h-full object-cover transition duration-300 group-hover:scale-[1.04] group-hover:brightness-105';
 
-    grid.addEventListener('click', function (e) {
-      var link = e.target.closest('a[data-index]');
-      if (!link) return;
-      e.preventDefault();
-      open(parseInt(link.getAttribute('data-index'), 10));
-    });
-  }
+        a.appendChild(img);
+        frag.appendChild(a);
+      }
 
-  function revealAll() {
-    var hidden = grid.querySelectorAll('a.hidden');
-    for (var i = 0; i < hidden.length; i++) hidden[i].classList.remove('hidden');
-    if (moreBtn) moreBtn.parentNode.removeChild(moreBtn);
-  }
+      grid.appendChild(frag);
 
-  /* ---------- lightbox ---------- */
-
-  function createOverlay() {
-    var o = document.createElement('div');
-    o.className = 'lb';
-    o.setAttribute('role', 'dialog');
-    o.setAttribute('aria-modal', 'true');
-    o.setAttribute('aria-label', T.dialog);
-    o.innerHTML =
-      '<div class="lb-bar">' +
-        '<span class="lb-counter" aria-live="polite"></span>' +
-        '<button type="button" class="lb-btn lb-close" aria-label="' + T.close + '">&times;</button>' +
-      '</div>' +
-      '<div class="lb-stage">' +
-        '<button type="button" class="lb-btn lb-nav lb-prev" aria-label="' + T.prev + '">&#8249;</button>' +
-        '<img class="lb-img" alt="" />' +
-        '<button type="button" class="lb-btn lb-nav lb-next" aria-label="' + T.next + '">&#8250;</button>' +
-      '</div>' +
-      '<div class="lb-strip" role="tablist" aria-label="' + T.thumbs + '"></div>';
-
-    imgEl = o.querySelector('.lb-img');
-    counterEl = o.querySelector('.lb-counter');
-    stripEl = o.querySelector('.lb-strip');
-
-    o.querySelector('.lb-close').addEventListener('click', close);
-    o.querySelector('.lb-prev').addEventListener('click', function () { go(-1); });
-    o.querySelector('.lb-next').addEventListener('click', function () { go(1); });
-    o.querySelector('.lb-stage').addEventListener('click', function (e) {
-      if (e.target === e.currentTarget) close();
-    });
-
-    buildStrip();
-    bindSwipe(o);
-    return o;
-  }
-
-  function buildStrip() {
-    var frag = document.createDocumentFragment();
-    stripThumbs = [];
-
-    for (var i = 0; i < CONFIG.count; i++) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'lb-thumb';
-      b.setAttribute('data-index', i);
-      b.setAttribute('aria-label', T.photo + (i + 1));
-
-      var img = document.createElement('img');
-      img.src = thumbSrc(i);
-      img.alt = '';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-
-      b.appendChild(img);
-      frag.appendChild(b);
-      stripThumbs.push(b);
-    }
-
-    stripEl.appendChild(frag);
-    stripEl.addEventListener('click', function (e) {
-      var b = e.target.closest('.lb-thumb');
-      if (b) show(parseInt(b.getAttribute('data-index'), 10));
-    });
-  }
-
-  function bindSwipe(o) {
-    var x0 = null, y0 = null;
-    o.addEventListener('touchstart', function (e) {
-      if (e.touches.length !== 1) return;
-      x0 = e.touches[0].clientX;
-      y0 = e.touches[0].clientY;
-    }, { passive: true });
-    o.addEventListener('touchend', function (e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      var dy = e.changedTouches[0].clientY - y0;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
-      x0 = y0 = null;
-    }, { passive: true });
-  }
-
-  function show(index) {
-    currentIndex = (index + CONFIG.count) % CONFIG.count;
-
-    imgEl.classList.add('is-loading');
-    imgEl.src = fullSrc(currentIndex);
-    imgEl.alt = altText(currentIndex);
-    imgEl.onload = function () { imgEl.classList.remove('is-loading'); };
-
-    counterEl.textContent = (currentIndex + 1) + ' / ' + CONFIG.count;
-
-    for (var i = 0; i < stripThumbs.length; i++) {
-      stripThumbs[i].classList.toggle('is-active', i === currentIndex);
-    }
-    var active = stripThumbs[currentIndex];
-    if (active) {
-      stripEl.scrollTo({
-        left: active.offsetLeft - stripEl.clientWidth / 2 + active.clientWidth / 2,
-        behavior: 'smooth'
+      grid.addEventListener('click', function (e) {
+        var link = e.target.closest('a[data-index]');
+        if (!link) return;
+        e.preventDefault();
+        open(parseInt(link.getAttribute('data-index'), 10));
       });
     }
 
-    // preload neighbours so arrow-key browsing feels instant
-    [1, -1].forEach(function (d) {
-      var n = new Image();
-      n.src = fullSrc((currentIndex + d + CONFIG.count) % CONFIG.count);
-    });
-  }
-
-  function go(delta) { show(currentIndex + delta); }
-
-  function open(index) {
-    lastFocused = document.activeElement;
-    if (!overlay) overlay = createOverlay();
-    document.body.appendChild(overlay);
-    document.documentElement.classList.add('lb-open');
-    show(index);
-    document.addEventListener('keydown', onKeyDown);
-    overlay.querySelector('.lb-close').focus();
-  }
-
-  function close() {
-    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
-    document.documentElement.classList.remove('lb-open');
-    document.removeEventListener('keydown', onKeyDown);
-    if (lastFocused && lastFocused.focus) lastFocused.focus();
-  }
-
-  function onKeyDown(e) {
-    switch (e.key) {
-      case 'Escape': close(); break;
-      case 'ArrowRight': go(1); break;
-      case 'ArrowLeft': go(-1); break;
-      case 'Home': e.preventDefault(); show(0); break;
-      case 'End': e.preventDefault(); show(CONFIG.count - 1); break;
+    function revealAll() {
+      var hidden = grid.querySelectorAll('a.hidden');
+      for (var i = 0; i < hidden.length; i++) hidden[i].classList.remove('hidden');
+      if (moreBtn) moreBtn.parentNode.removeChild(moreBtn);
     }
+
+    /* ---------- lightbox ---------- */
+
+    function createOverlay() {
+      var o = document.createElement('div');
+      o.className = 'lb';
+      o.setAttribute('role', 'dialog');
+      o.setAttribute('aria-modal', 'true');
+      o.setAttribute('aria-label', T.dialog);
+      o.innerHTML =
+        '<div class="lb-bar">' +
+          '<span class="lb-counter" aria-live="polite"></span>' +
+          '<button type="button" class="lb-btn lb-close" aria-label="' + T.close + '">&times;</button>' +
+        '</div>' +
+        '<div class="lb-stage">' +
+          '<button type="button" class="lb-btn lb-nav lb-prev" aria-label="' + T.prev + '">&#8249;</button>' +
+          '<img class="lb-img" alt="" />' +
+          '<button type="button" class="lb-btn lb-nav lb-next" aria-label="' + T.next + '">&#8250;</button>' +
+        '</div>' +
+        '<div class="lb-strip" role="tablist" aria-label="' + T.thumbs + '"></div>';
+
+      imgEl = o.querySelector('.lb-img');
+      counterEl = o.querySelector('.lb-counter');
+      stripEl = o.querySelector('.lb-strip');
+
+      o.querySelector('.lb-close').addEventListener('click', close);
+      o.querySelector('.lb-prev').addEventListener('click', function () { go(-1); });
+      o.querySelector('.lb-next').addEventListener('click', function () { go(1); });
+      o.querySelector('.lb-stage').addEventListener('click', function (e) {
+        if (e.target === e.currentTarget) close();
+      });
+
+      buildStrip();
+      bindSwipe(o);
+      return o;
+    }
+
+    function buildStrip() {
+      var frag = document.createDocumentFragment();
+      stripThumbs = [];
+
+      for (var i = 0; i < CONFIG.count; i++) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'lb-thumb';
+        b.setAttribute('data-index', i);
+        b.setAttribute('aria-label', T.photo + (i + 1));
+
+        var img = document.createElement('img');
+        img.src = thumbSrc(i);
+        img.alt = '';
+        img.loading = 'lazy';
+        img.decoding = 'async';
+
+        b.appendChild(img);
+        frag.appendChild(b);
+        stripThumbs.push(b);
+      }
+
+      stripEl.appendChild(frag);
+      stripEl.addEventListener('click', function (e) {
+        var b = e.target.closest('.lb-thumb');
+        if (b) show(parseInt(b.getAttribute('data-index'), 10));
+      });
+    }
+
+    function bindSwipe(o) {
+      var x0 = null, y0 = null;
+      o.addEventListener('touchstart', function (e) {
+        if (e.touches.length !== 1) return;
+        x0 = e.touches[0].clientX;
+        y0 = e.touches[0].clientY;
+      }, { passive: true });
+      o.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        var dy = e.changedTouches[0].clientY - y0;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
+        x0 = y0 = null;
+      }, { passive: true });
+    }
+
+    function show(index) {
+      currentIndex = (index + CONFIG.count) % CONFIG.count;
+
+      imgEl.classList.add('is-loading');
+      imgEl.src = fullSrc(currentIndex);
+      imgEl.alt = altText(currentIndex);
+      imgEl.onload = function () { imgEl.classList.remove('is-loading'); };
+
+      counterEl.textContent = (currentIndex + 1) + ' / ' + CONFIG.count;
+
+      for (var i = 0; i < stripThumbs.length; i++) {
+        stripThumbs[i].classList.toggle('is-active', i === currentIndex);
+      }
+      var active = stripThumbs[currentIndex];
+      if (active) {
+        stripEl.scrollTo({
+          left: active.offsetLeft - stripEl.clientWidth / 2 + active.clientWidth / 2,
+          behavior: 'smooth'
+        });
+      }
+
+      // preload neighbours so arrow-key browsing feels instant
+      [1, -1].forEach(function (d) {
+        var n = new Image();
+        n.src = fullSrc((currentIndex + d + CONFIG.count) % CONFIG.count);
+      });
+    }
+
+    function go(delta) { show(currentIndex + delta); }
+
+    function open(index) {
+      lastFocused = document.activeElement;
+      if (!overlay) overlay = createOverlay();
+      document.body.appendChild(overlay);
+      document.documentElement.classList.add('lb-open');
+      show(index);
+      document.addEventListener('keydown', onKeyDown);
+      overlay.querySelector('.lb-close').focus();
+    }
+
+    function close() {
+      if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      document.documentElement.classList.remove('lb-open');
+      document.removeEventListener('keydown', onKeyDown);
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    function onKeyDown(e) {
+      switch (e.key) {
+        case 'Escape': close(); break;
+        case 'ArrowRight': go(1); break;
+        case 'ArrowLeft': go(-1); break;
+        case 'Home': e.preventDefault(); show(0); break;
+        case 'End': e.preventDefault(); show(CONFIG.count - 1); break;
+      }
+    }
+
+    // data-preview="18" shows a teaser behind a "show all" button;
+    // without it every photo is rendered straight away.
+    var wanted = parseInt(grid.getAttribute('data-preview'), 10);
+    preview = wanted > 0 && wanted < CONFIG.count ? wanted : CONFIG.count;
+
+    moreBtn = document.querySelector('[data-gallery-more="' + grid.id + '"]');
+    buildGrid();
+
+    if (moreBtn && preview >= CONFIG.count) {
+      moreBtn.parentNode.removeChild(moreBtn);
+      moreBtn = null;
+    }
+    if (moreBtn) moreBtn.addEventListener('click', revealAll);
+
+    var countEls = document.querySelectorAll('[data-photo-count="' + grid.id + '"]');
+    for (var i = 0; i < countEls.length; i++) countEls[i].textContent = CONFIG.count;
   }
 
   /* ---------- styles ---------- */
@@ -273,28 +300,12 @@
   /* ---------- init ---------- */
 
   function init() {
-    grid = document.getElementById('galleryGrid');
-    if (!grid) return;
+    var grids = document.querySelectorAll('[data-gallery-dir]');
+    if (!grids.length) return;
 
     T = STRINGS[document.documentElement.lang === 'en' ? 'en' : 'pl'];
-
-    // data-preview="18" shows a teaser behind a "show all" button;
-    // without it every photo is rendered straight away.
-    var wanted = parseInt(grid.getAttribute('data-preview'), 10);
-    preview = wanted > 0 && wanted < CONFIG.count ? wanted : CONFIG.count;
-
-    moreBtn = document.getElementById('galleryMore');
     injectStyles();
-    buildGrid();
-
-    if (moreBtn && preview >= CONFIG.count) {
-      moreBtn.parentNode.removeChild(moreBtn);
-      moreBtn = null;
-    }
-    if (moreBtn) moreBtn.addEventListener('click', revealAll);
-
-    var countEls = document.querySelectorAll('[data-photo-count]');
-    for (var i = 0; i < countEls.length; i++) countEls[i].textContent = CONFIG.count;
+    for (var i = 0; i < grids.length; i++) createGallery(grids[i]);
   }
 
   if (document.readyState === 'loading') {
