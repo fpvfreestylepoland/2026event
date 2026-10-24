@@ -88,6 +88,7 @@
 
         <nav class="flex items-center gap-4 sm:gap-6 text-sm text-neutral-600">
           <a href="#pilots" class="hidden sm:inline hover:text-ink transition">Pilots</a>
+          <a href="#video" class="hidden sm:inline hover:text-ink transition">Video</a>
           <a href="#gallery" class="hidden sm:inline hover:text-ink transition">Gallery</a>
           <a href="#partners" class="hidden md:inline hover:text-ink transition">Partners</a>
           <a href="/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-ink text-white font-medium hover:bg-black transition whitespace-nowrap">Next edition</a>
@@ -122,7 +123,7 @@
       </p>
 
       <p class="mt-4 text-sm text-neutral-500 max-w-2xl mx-auto">
-        This page is a recap for our partners and sponsors: who showed up and every photo from the day. The next edition takes place in 2027 — date and venue to be announced.
+        This page is a recap for our partners and sponsors: who showed up, the recap video, and every photo from the day. The next edition takes place in 2027 — date and venue to be announced.
       </p>
 
       <dl class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-left">
@@ -144,13 +145,14 @@
         <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-card">
           <dt class="text-xs uppercase tracking-widest text-neutral-500">Coverage</dt>
           <dd class="mt-1.5 font-display text-lg font-semibold"><span data-photo-count="galleryGrid">149</span> photos</dd>
-          <dd class="text-sm text-neutral-500">full gallery below</dd>
+          <dd class="text-sm text-neutral-500">+ recap video</dd>
         </div>
       </dl>
 
       <nav aria-label="Jump to section" class="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm">
         <span class="text-neutral-500">Jump to:</span>
         <a href="#pilots" class="px-3.5 py-1.5 rounded-full border border-black/10 bg-white/70 font-medium hover:border-black/40 transition">Pilots</a>
+        <a href="#video" class="px-3.5 py-1.5 rounded-full border border-black/10 bg-white/70 font-medium hover:border-black/40 transition">Video</a>
         <a href="#gallery" class="px-3.5 py-1.5 rounded-full border border-black/10 bg-white/70 font-medium hover:border-black/40 transition">Gallery</a>
         <a href="#partners" class="px-3.5 py-1.5 rounded-full border border-black/10 bg-white/70 font-medium hover:border-black/40 transition">Partners</a>
       </nav>
@@ -250,8 +252,36 @@
     </div>
   </section>
 
+  <!-- VIDEO -->
+  <section id="video" class="relative py-16 sm:py-20 border-b border-black/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-widest text-amber">Watch</p>
+      <h2 class="font-display mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Recap video</h2>
+      <p class="mt-3 text-neutral-600 max-w-2xl">A short vertical cut from the whole day — flying, the crew and the atmosphere of the meetup.</p>
+
+      <div class="mt-8 mx-auto max-w-sm rounded-2xl border border-black/10 bg-white shadow-card overflow-hidden">
+        <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 px-5 py-3.5 border-b border-black/10 text-sm">
+          <span class="text-neutral-600">🎬 Bytom, October 17, 2026</span>
+          <a href="https://youtube.com/shorts/_cmUQKINnn8" target="_blank" rel="noopener" class="font-medium text-ink hover:text-amber transition whitespace-nowrap">Watch on YouTube →</a>
+        </div>
+        <!-- YouTube Short: 9:16 frame so the player fills it edge to edge -->
+        <div class="aspect-[9/16] bg-white">
+          <iframe
+            title="FPV Silesia Poland 2026 — Autumn Edition recap video, Bytom"
+            src="https://www.youtube-nocookie.com/embed/_cmUQKINnn8"
+            class="w-full h-full block"
+            style="border:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- GALLERY -->
-  <section id="gallery" class="relative py-16 sm:py-20 border-b border-black/5">
+  <section id="gallery" class="relative py-16 sm:py-20 bg-neutral-50 border-b border-black/5">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-sm font-semibold uppercase tracking-widest text-amber">Look around</p>
       <div class="mt-3 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
@@ -271,7 +301,7 @@
   </section>
 
   <!-- PARTNERS -->
-  <section id="partners" class="relative py-16 sm:py-20 bg-neutral-50 border-b border-black/5">
+  <section id="partners" class="relative py-16 sm:py-20 border-b border-black/5">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
         <div>
