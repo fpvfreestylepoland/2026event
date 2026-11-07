@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="pl" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Regulamin spotkania — FPV Silesia Poland 2026</title>
+  <title data-en-text="Event rules — FPV Silesia Poland 2026" data-pl-text="Regulamin spotkania — FPV Silesia Poland 2026">Event rules — FPV Silesia Poland 2026</title>
+  <script src="/i18n.js"></script>
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
-  <meta name="description" content="FPV Silesia Poland 2026 — regulamin wydarzenia, zasady uczestnictwa, wizerunek i przetwarzanie danych (RODO)." />
+  <meta name="description" content="FPV Silesia Poland 2026 — event rules, participation terms, image rights and personal data processing (GDPR)."
+        data-en-content="FPV Silesia Poland 2026 — event rules, participation terms, image rights and personal data processing (GDPR)."
+        data-pl-content="FPV Silesia Poland 2026 — regulamin wydarzenia, zasady uczestnictwa, wizerunek i przetwarzanie danych (RODO)." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -37,6 +40,11 @@
     :root { color-scheme: light; }
     html, body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
     .font-display { font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; }
+    /* Bilingual content: hide whichever language isn't active (<html lang> is set by /i18n.js) */
+    html[lang="en"] body [lang="pl"], html[lang="pl"] body [lang="en"] { display: none !important; }
+    .lang-switch a { color: rgb(115 115 115); }
+    html[lang="en"] .lang-switch [data-set-lang="en"],
+    html[lang="pl"] .lang-switch [data-set-lang="pl"] { background: rgb(18 18 22); color: #fff; }
   </style>
 
   <!-- Favicon & App Meta -->
@@ -54,36 +62,45 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-3">
-          <img src="/images/logo-mark-tile.svg" alt="Logo FPV Silesia Poland 2026 Freestyle" class="h-10 w-10 rounded-lg" />
+          <img src="/images/logo-mark-tile.svg" alt="FPV Silesia Poland 2026 Freestyle logo" data-en-alt="FPV Silesia Poland 2026 Freestyle logo" data-pl-alt="Logo FPV Silesia Poland 2026 Freestyle" class="h-10 w-10 rounded-lg" />
           <div class="leading-tight">
             <span class="font-display font-bold tracking-tight text-sm">FPV SILESIA</span>
             <div class="text-[11px] text-neutral-500 -mt-0.5 tracking-wider">POLAND 2026 · FREESTYLE</div>
           </div>
         </a>
 
-        <nav class="hidden md:flex items-center gap-7 text-sm text-neutral-600">
-          <a href="/#about" class="hover:text-ink transition">O evencie</a>
-          <a href="/#details" class="hover:text-ink transition">Szczegóły</a>
-          <a href="/#location" class="hover:text-ink transition">Lokalizacja</a>
-          <a href="/#sponsors" class="hover:text-ink transition">Sponsorzy</a>
-          <a href="/#register" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-ink text-white font-medium hover:bg-black transition">Zapisz się</a>
+        <div class="flex items-center gap-3 md:gap-5">
+        <nav class="hidden md:flex items-center gap-6 text-sm text-neutral-600">
+          <a href="/#about" class="hover:text-ink transition"><span lang="en">About</span><span lang="pl">O evencie</span></a>
+          <a href="/#details" class="hover:text-ink transition"><span lang="en">Details</span><span lang="pl">Szczegóły</span></a>
+          <a href="/#recap" class="hover:text-ink transition"><span lang="en">Gallery</span><span lang="pl">Galeria</span></a>
+          <a href="/#sponsors" class="hover:text-ink transition"><span lang="en">Sponsors</span><span lang="pl">Sponsorzy</span></a>
+          <a href="/#contact" class="hover:text-ink transition"><span lang="en">Contact</span><span lang="pl">Kontakt</span></a>
+          <a href="/#register" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-ink text-white font-medium hover:bg-black transition"><span lang="en">2027 Edition</span><span lang="pl">Edycja 2027</span></a>
         </nav>
 
+        <div class="lang-switch inline-flex items-center rounded-full border border-black/10 bg-white p-0.5 text-xs font-semibold" role="group" aria-label="Language / Język">
+          <a href="?lang=en" hreflang="en" data-set-lang="en" class="px-2.5 py-1 rounded-full transition hover:text-ink">EN</a>
+          <a href="?lang=pl" hreflang="pl" data-set-lang="pl" class="px-2.5 py-1 rounded-full transition hover:text-ink">PL</a>
+        </div>
+
         <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden p-2 rounded-lg border border-black/10 hover:border-black/30">
-          <span class="sr-only">Otwórz menu</span>
+          <span class="sr-only"><span lang="en">Open menu</span><span lang="pl">Otwórz menu</span></span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
+        </div>
       </div>
     </div>
     <nav id="mobileMenu" class="md:hidden hidden border-t border-black/5 bg-white">
       <div class="px-4 py-3 space-y-1 text-sm">
-        <a href="/#about" class="block py-1.5 text-neutral-700 hover:text-ink">O evencie</a>
-        <a href="/#details" class="block py-1.5 text-neutral-700 hover:text-ink">Szczegóły</a>
-        <a href="/#location" class="block py-1.5 text-neutral-700 hover:text-ink">Lokalizacja</a>
-        <a href="/#sponsors" class="block py-1.5 text-neutral-700 hover:text-ink">Sponsorzy</a>
-        <a href="/#register" class="block py-1.5 font-medium text-ink">Zapisz się →</a>
+        <a href="/#about" class="block py-1.5 text-neutral-700 hover:text-ink"><span lang="en">About</span><span lang="pl">O evencie</span></a>
+        <a href="/#details" class="block py-1.5 text-neutral-700 hover:text-ink"><span lang="en">Details</span><span lang="pl">Szczegóły</span></a>
+        <a href="/#recap" class="block py-1.5 text-neutral-700 hover:text-ink"><span lang="en">Gallery</span><span lang="pl">Galeria</span></a>
+        <a href="/#sponsors" class="block py-1.5 text-neutral-700 hover:text-ink"><span lang="en">Sponsors</span><span lang="pl">Sponsorzy</span></a>
+        <a href="/#contact" class="block py-1.5 text-neutral-700 hover:text-ink"><span lang="en">Contact</span><span lang="pl">Kontakt</span></a>
+        <a href="/#register" class="block py-1.5 font-medium text-ink"><span lang="en">2027 Edition →</span><span lang="pl">Edycja 2027 →</span></a>
       </div>
     </nav>
   </header>
@@ -91,34 +108,41 @@
   <!-- MAIN CONTENT -->
   <main class="min-h-screen">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-      <p class="text-sm font-semibold uppercase tracking-widest text-amber">Dokument</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-amber"><span lang="en">Document</span><span lang="pl">Dokument</span></p>
       <h1 class="font-display mt-3 text-4xl sm:text-5xl font-bold tracking-tight">
-        Regulamin spotkania FPV Silesia Poland 2026
+        <span lang="en">FPV Silesia Poland 2026 event rules</span><span lang="pl">Regulamin spotkania FPV Silesia Poland 2026</span>
       </h1>
-      <p class="mt-3 text-sm text-neutral-500">Ostatnia aktualizacja: 30 lipca 2026</p>
+      <p class="mt-3 text-sm text-neutral-500"><span lang="en">Last updated: July 30, 2026</span><span lang="pl">Ostatnia aktualizacja: 30 lipca 2026</span></p>
 
       <!-- INTRO -->
       <section class="mt-8">
-        <p class="text-lg text-neutral-700 leading-relaxed">
+        <p lang="en" class="text-lg text-neutral-700 leading-relaxed">
+          These Rules set out the terms of participation in the FPV drone enthusiasts' meetup “FPV Silesia Poland 2026”. You'll find all the event information on the <a href="/#about" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">home page</a>.
+        </p>
+        <p lang="pl" class="text-lg text-neutral-700 leading-relaxed">
           Niniejszy Regulamin określa zasady uczestnictwa w spotkaniu pasjonatów dronów FPV „FPV Silesia Poland 2026". Wszystkie informacje o wydarzeniu znajdziesz na <a href="/#about" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">stronie głównej</a>.
         </p>
         <div class="mt-6 p-4 rounded-xl bg-gold/10 border border-gold/30 text-ink text-sm font-medium">
-          Ważne: udział w Spotkaniu — rejestracja lub obecność na miejscu — oznacza akceptację niniejszego Regulaminu.
+          <span lang="en">Important: taking part in the Meetup — by registering or by being present on site — means you accept these Rules.</span>
+          <span lang="pl">Ważne: udział w Spotkaniu — rejestracja lub obecność na miejscu — oznacza akceptację niniejszego Regulaminu.</span>
         </div>
+        <p lang="en" class="mt-4 text-sm text-neutral-500">
+          This is an English translation provided for convenience. The <a href="?lang=pl" data-set-lang="pl" class="underline decoration-black/20 hover:decoration-ink underline-offset-2">Polish version</a> is the binding one; in case of any discrepancy, the Polish text prevails.
+        </p>
       </section>
 
       <!-- TABLE OF CONTENTS -->
-      <nav aria-label="Spis treści" class="mt-8 rounded-2xl border border-black/10 bg-neutral-50 p-5 sm:p-6">
-        <p class="text-xs font-semibold uppercase tracking-widest text-neutral-500">Spis treści</p>
+      <nav aria-label="Contents" data-en-aria-label="Contents" data-pl-aria-label="Spis treści" class="mt-8 rounded-2xl border border-black/10 bg-neutral-50 p-5 sm:p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-neutral-500"><span lang="en">Contents</span><span lang="pl">Spis treści</span></p>
         <ol class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm text-neutral-700">
-          <li><a href="#par-1" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 1. Postanowienia ogólne</a></li>
-          <li><a href="#par-2" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 2. Wiek uczestników i opieka</a></li>
-          <li><a href="#par-3" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 3. Bezpieczeństwo lotów i piloci</a></li>
-          <li><a href="#par-4" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 4. Wyłączenie odpowiedzialności</a></li>
-          <li><a href="#par-5" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 5. Poszanowanie terenu i porządek</a></li>
-          <li><a href="#par-6" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 6. Wizerunek</a></li>
-          <li><a href="#par-7" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 7. Dane osobowe (RODO)</a></li>
-          <li><a href="#par-8" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 8. Postanowienia końcowe</a></li>
+          <li><a href="#par-1" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 1. <span lang="en">General provisions</span><span lang="pl">Postanowienia ogólne</span></a></li>
+          <li><a href="#par-2" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 2. <span lang="en">Participant age and supervision</span><span lang="pl">Wiek uczestników i opieka</span></a></li>
+          <li><a href="#par-3" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 3. <span lang="en">Flight safety and pilots</span><span lang="pl">Bezpieczeństwo lotów i piloci</span></a></li>
+          <li><a href="#par-4" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 4. <span lang="en">Exclusion of liability</span><span lang="pl">Wyłączenie odpowiedzialności</span></a></li>
+          <li><a href="#par-5" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 5. <span lang="en">Respect for the venue and tidiness</span><span lang="pl">Poszanowanie terenu i porządek</span></a></li>
+          <li><a href="#par-6" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 6. <span lang="en">Image rights</span><span lang="pl">Wizerunek</span></a></li>
+          <li><a href="#par-7" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 7. <span lang="en">Personal data (GDPR)</span><span lang="pl">Dane osobowe (RODO)</span></a></li>
+          <li><a href="#par-8" class="hover:text-ink underline decoration-transparent hover:decoration-gold/60 underline-offset-2 transition">§ 8. <span lang="en">Final provisions</span><span lang="pl">Postanowienia końcowe</span></a></li>
         </ol>
       </nav>
 
@@ -128,9 +152,15 @@
         <section id="par-1" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 1</span>
-            <h2 class="font-display text-xl font-bold text-ink">Postanowienia ogólne</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">General provisions</span><span lang="pl">Postanowienia ogólne</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li>These Rules set out the terms of participation in the open, non-commercial meetup of FPV drone enthusiasts called “FPV Silesia Poland 2026” (the “Meetup”).</li>
+            <li>The Meetup is entirely informal, non-commercial and of a hobby and community nature. It is organised on a grassroots basis by FPV enthusiasts in their free time. The Meetup is not a mass event within the meaning of the Polish Act of 20 March 2009 on the safety of mass events, nor is it a business activity.</li>
+            <li>Participation in the Meetup is voluntary. Every person present at the Meetup (Pilot, Spectator, Accompanying Person) must read these Rules and strictly comply with them.</li>
+            <li>Submitting the online registration form available via <a href="https://fpvsilesia2026.pl/" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">fpvsilesia2026.pl</a>, or being physically present at the Meetup, constitutes full acceptance of these Rules.</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li>Niniejszy Regulamin określa zasady uczestnictwa w otwartym, niekomercyjnym spotkaniu pasjonatów dronów FPV pod nazwą „FPV Silesia Poland 2026" (zwanym dalej „Spotkaniem").</li>
             <li>Spotkanie ma charakter całkowicie nieformalny, niekomercyjny oraz hobbystyczno-integracyjny. Jest organizowane oddolnie przez pasjonatów FPV w wolnym czasie. Spotkanie nie jest imprezą masową w rozumieniu ustawy z dnia 20 marca 2009 r. o bezpieczeństwie imprez masowych ani działalnością gospodarczą.</li>
             <li>Udział w Spotkaniu jest dobrowolny. Każda osoba przebywająca na terenie Spotkania (Pilot, Widz, Osoba Towarzysząca) zobowiązana jest do zapoznania się z niniejszym Regulaminem i bezwzględnego przestrzegania jego postanowień.</li>
@@ -141,9 +171,14 @@
         <section id="par-2" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 2</span>
-            <h2 class="font-display text-xl font-bold text-ink">Wiek uczestników i opieka</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">Participant age and supervision</span><span lang="pl">Wiek uczestników i opieka</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li><strong class="font-semibold text-ink">Adults (18+):</strong> have full legal capacity and take part in the Meetup (as Pilots or Spectators) at their own risk.</li>
+            <li><strong class="font-semibold text-ink">Persons aged 16–17:</strong> may take part in the Meetup and fly only with the prior written consent of a parent or legal guardian.</li>
+            <li><strong class="font-semibold text-ink">Persons under 16:</strong> may be present at the Meetup or fly only under the constant, direct supervision of a parent or legal guardian present on site, who bears full legal and financial responsibility for them.</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li><strong class="font-semibold text-ink">Osoby pełnoletnie (18+):</strong> posiadają pełną zdolność do czynności prawnych i uczestniczą w Spotkaniu (zarówno jako Piloci, jak i Widzowie) na własną odpowiedzialność.</li>
             <li><strong class="font-semibold text-ink">Osoby w wieku 16–17 lat:</strong> mogą brać udział w Spotkaniu oraz wykonywać loty wyłącznie za uprzednią, pisemną zgodą rodzica lub opiekuna prawnego.</li>
             <li><strong class="font-semibold text-ink">Osoby poniżej 16. roku życia:</strong> mogą przebywać na terenie Spotkania lub wykonywać loty wyłącznie pod stałym, bezpośrednim nadzorem obecnego na miejscu rodzica lub opiekuna prawnego, który ponosi za nie pełną odpowiedzialność prawną i materialną.</li>
@@ -153,9 +188,17 @@
         <section id="par-3" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 3</span>
-            <h2 class="font-display text-xl font-bold text-ink">Zasady bezpieczeństwa lotów i wymagania dla pilotów</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">Flight safety rules and pilot requirements</span><span lang="pl">Zasady bezpieczeństwa lotów i wymagania dla pilotów</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li>Every Pilot flying at the Meetup must hold the competency certificates and registration with the Polish Civil Aviation Authority (Urząd Lotnictwa Cywilnego, ULC) required by law for the given category of flights.</li>
+            <li>Every Pilot must report each flight in the dedicated app (DroneTower / PansaUTM), in accordance with applicable aviation law.</li>
+            <li><strong class="font-semibold text-ink">Liability insurance:</strong> every Pilot flying FPV/UAV is recommended to hold valid third-party liability insurance covering damage caused by flying models or drones.</li>
+            <li><strong class="font-semibold text-ink">Flight zones:</strong> flights may only take place in the designated zones, marked in green on the map below. Flying over the zone marked in red (“NO-FLY ZONE”), as well as over the spectator area, parking, technical facilities and bystanders, is strictly prohibited.</li>
+            <li>Flying under the influence of alcohol, drugs or medication that impairs physical or mental fitness is prohibited.</li>
+            <li>The organisers and other participants may demand an immediate landing from any Pilot whose behaviour poses a risk to health, life or property.</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li>Każdy Pilot wykonujący loty na terenie Spotkania musi posiadać uprawnienia oraz rejestrację w systemie Urzędu Lotnictwa Cywilnego (ULC), wymagane przepisami prawa dla danej kategorii lotów.</li>
             <li>Każdy Pilot zobowiązany jest do zgłaszania każdego lotu w dedykowanej aplikacji (DroneTower / PansaUTM), zgodnie z obowiązującymi przepisami prawa lotniczego.</li>
             <li><strong class="font-semibold text-ink">Ubezpieczenie OC:</strong> zaleca się, aby każdy Pilot wykonujący loty FPV/UAV posiadał aktualne ubezpieczenie odpowiedzialności cywilnej (OC), obejmujące szkody wyrządzone ruchem modeli latających lub dronów.</li>
@@ -165,21 +208,40 @@
           </ol>
 
           <figure class="mt-6">
-            <img src="/images/strefy-lotow.jpg" alt="Mapa stref lotów na terenie LKS Tempo Stolarzowice — obszar zielony oznacza loty dozwolone, obszar czerwony przy wjeździe oznacza zakaz lotów" class="w-full h-auto rounded-2xl border border-black/10 shadow-card" loading="lazy" />
+            <img src="/images/strefy-lotow.jpg"
+                 alt="Flight zone map of the LKS Tempo Stolarzowice venue — the green area is where flying is allowed, the red area by the entrance is a no-fly zone"
+                 data-en-alt="Flight zone map of the LKS Tempo Stolarzowice venue — the green area is where flying is allowed, the red area by the entrance is a no-fly zone"
+                 data-pl-alt="Mapa stref lotów na terenie LKS Tempo Stolarzowice — obszar zielony oznacza loty dozwolone, obszar czerwony przy wjeździe oznacza zakaz lotów"
+                 class="w-full h-auto rounded-2xl border border-black/10 shadow-card" loading="lazy" />
             <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-neutral-700">
-              <span class="inline-flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-sm bg-green-500/70 ring-1 ring-green-600"></span> Loty dozwolone</span>
-              <span class="inline-flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-sm bg-red-500/60 ring-1 ring-red-600"></span> Zakaz lotów</span>
+              <span class="inline-flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-sm bg-green-500/70 ring-1 ring-green-600"></span> <span lang="en">Flying allowed</span><span lang="pl">Loty dozwolone</span></span>
+              <span class="inline-flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-sm bg-red-500/60 ring-1 ring-red-600"></span> <span lang="en">No-fly zone</span><span lang="pl">Zakaz lotów</span></span>
             </div>
-            <figcaption class="mt-2 text-xs text-neutral-500">Mapa stref lotów — teren LKS Tempo Stolarzowice. Loty wyłącznie w strefie zielonej.</figcaption>
+            <figcaption class="mt-2 text-xs text-neutral-500">
+              <span lang="en">Flight zone map — LKS Tempo Stolarzowice venue. Fly only in the green zone.</span>
+              <span lang="pl">Mapa stref lotów — teren LKS Tempo Stolarzowice. Loty wyłącznie w strefie zielonej.</span>
+            </figcaption>
           </figure>
         </section>
 
         <section id="par-4" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 4</span>
-            <h2 class="font-display text-xl font-bold text-ink">Wyłączenie odpowiedzialności organizatorów</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">Exclusion of the organisers' liability</span><span lang="pl">Wyłączenie odpowiedzialności organizatorów</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li>To the extent permitted by applicable law, the organisers (private individuals coordinating the Meetup) are not liable for:
+              <ul class="mt-2 space-y-1.5 list-disc pl-5 marker:text-gold">
+                <li>personal injury (harm to health, bodily injury) suffered by Participants or Spectators during the Meetup;</li>
+                <li>property damage (damage, destruction or theft of equipment, drones, goggles, radios, cars, etc.) occurring during the Meetup;</li>
+                <li>damage caused by Participants to third parties or to other Participants.</li>
+              </ul>
+            </li>
+            <li>Each Pilot bears sole and full civil and criminal liability for accidents, collisions and damage caused by the drone they control.</li>
+            <li>The organisers do not provide security for property or permanent medical cover.</li>
+            <li>The above exclusions do not apply to damage caused intentionally or to cases in which applicable law does not allow liability to be limited.</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li>Organizatorzy (osoby prywatne koordynujące Spotkanie) w zakresie dopuszczalnym przez obowiązujące przepisy nie ponoszą odpowiedzialności za:
               <ul class="mt-2 space-y-1.5 list-disc pl-5 marker:text-gold">
                 <li>szkody osobowe (uszczerbek na zdrowiu, obrażenia ciała) poniesione przez Uczestników lub Widzów w trakcie Spotkania;</li>
@@ -196,9 +258,14 @@
         <section id="par-5" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 5</span>
-            <h2 class="font-display text-xl font-bold text-ink">Poszanowanie terenu i porządek</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">Respect for the venue and tidiness</span><span lang="pl">Poszanowanie terenu i porządek</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li>The Meetup takes place thanks to the hospitality of the hosts who make the venue available. Participants must treat the space provided with respect.</li>
+            <li><strong class="font-semibold text-ink">“Leave no trace” rule:</strong> every participant must clean up after themselves and take away all the rubbish, packaging and bottles they brought, as well as any used or damaged equipment parts (LiPo batteries, propellers, etc.).</li>
+            <li>All LiPo batteries must be charged and stored with particular care (damaged or swollen packs must be secured immediately).</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li>Spotkanie odbywa się dzięki gościnności gospodarzy i udostępnieniu terenu. Uczestnicy zobowiązani są do szanowania udostępnionej przestrzeni.</li>
             <li><strong class="font-semibold text-ink">Zasada „zero śmieci":</strong> każdy uczestnik zobowiązany jest do posprzątania po sobie oraz zabrania wszystkich przywiezionych śmieci, opakowań, butelek, a także zużytych lub uszkodzonych elementów sprzętu (akumulatory LiPo, śmigła itp.).</li>
             <li>Wszelkie akumulatory LiPo należy ładować i przechowywać z zachowaniem szczególnych środków ostrożności (pakiety uszkodzone lub napęczniałe należy niezwłocznie zabezpieczyć).</li>
@@ -208,9 +275,12 @@
         <section id="par-6" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 6</span>
-            <h2 class="font-display text-xl font-bold text-ink">Wizerunek</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">Image rights</span><span lang="pl">Wizerunek</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li>The Meetup may be photographed and filmed. By taking part in the Meetup, the Participant consents to the free-of-charge use of their image in commemorative and promotional materials and in coverage published on social media (YouTube, Instagram, TikTok, Facebook) and on the website <a href="https://fpvsilesia2026.pl/" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">fpvsilesia2026.pl</a>.</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li>Uczestnictwo w Spotkaniu wiąże się z możliwością fotografowania i filmowania wydarzenia. Biorąc udział w Spotkaniu, Uczestnik wyraża zgodę na nieodpłatne wykorzystanie swojego wizerunku w materiałach pamiątkowych i promocyjnych oraz w relacjach publikowanych w mediach społecznościowych (YouTube, Instagram, TikTok, Facebook) i na stronie internetowej <a href="https://fpvsilesia2026.pl/" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">fpvsilesia2026.pl</a>.</li>
           </ol>
         </section>
@@ -218,9 +288,14 @@
         <section id="par-7" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 7</span>
-            <h2 class="font-display text-xl font-bold text-ink">Dane osobowe (RODO)</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">Personal data (GDPR)</span><span lang="pl">Dane osobowe (RODO)</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li>Personal data provided during registration (first name, optionally last name or nickname, and email address) will be processed solely for the purpose of organising the Meetup and contacting Participants. The data controllers are the organisers of FPV Silesia Poland — contact for personal data matters: <a href="mailto:fpvsilesiapoland@gmail.com" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">fpvsilesiapoland@gmail.com</a>. The data will not be shared with third parties for marketing purposes.</li>
+            <li>The data will be kept for as long as necessary to organise the Meetup and to handle any questions or complaints afterwards, but no longer than 12 months from the date of the Meetup.</li>
+            <li>Providing the data is voluntary but necessary to register. Participants have the right to access, rectify and erase their data and to restrict its processing — simply get in touch at the address above.</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li>Dane osobowe podane przy zapisie (imię, ewentualnie nazwisko lub pseudonim oraz adres e-mail) będą przetwarzane wyłącznie w celu organizacji Spotkania i kontaktu z Uczestnikami. Administratorem danych są Organizatorzy wydarzenia FPV Silesia Poland — kontakt w sprawach danych osobowych: <a href="mailto:fpvsilesiapoland@gmail.com" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">fpvsilesiapoland@gmail.com</a>. Dane nie będą udostępniane podmiotom trzecim w celach marketingowych.</li>
             <li>Dane będą przechowywane przez okres niezbędny do organizacji Spotkania oraz przez czas potrzebny do obsługi ewentualnych pytań i reklamacji po jego zakończeniu, nie dłużej jednak niż 12 miesięcy od daty Spotkania.</li>
             <li>Podanie danych jest dobrowolne, lecz niezbędne do rejestracji. Uczestnikowi przysługuje prawo dostępu do swoich danych, ich sprostowania, usunięcia oraz ograniczenia przetwarzania — w tym celu wystarczy kontakt pod adresem podanym powyżej.</li>
@@ -230,9 +305,15 @@
         <section id="par-8" class="scroll-mt-24">
           <div class="flex items-baseline gap-3">
             <span class="font-display text-sm font-bold text-amber shrink-0">§ 8</span>
-            <h2 class="font-display text-xl font-bold text-ink">Postanowienia końcowe</h2>
+            <h2 class="font-display text-xl font-bold text-ink"><span lang="en">Final provisions</span><span lang="pl">Postanowienia końcowe</span></h2>
           </div>
-          <ol class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+          <ol lang="en" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
+            <li>Matters not covered by these Rules are governed by the relevant provisions of the Polish Civil Code and aviation law.</li>
+            <li>The organisers reserve the right to amend these Rules and to ask anyone who does not follow the safety rules or the provisions of these Rules to leave the Meetup.</li>
+            <li>The organisers reserve the right to change the date, venue or rules of the Meetup in exceptional circumstances (e.g. bad weather) and will announce any such change on <a href="https://fpvsilesia2026.pl/" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">fpvsilesia2026.pl</a>.</li>
+            <li>In disputed matters and matters not covered by these Rules, the final decision rests with the organisers.</li>
+          </ol>
+          <ol lang="pl" class="mt-4 space-y-3 text-sm text-neutral-700 leading-relaxed list-decimal pl-5 marker:text-neutral-400 marker:font-medium">
             <li>W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają odpowiednie przepisy Kodeksu cywilnego oraz prawa lotniczego.</li>
             <li>Organizatorzy zastrzegają sobie prawo do wprowadzania zmian w Regulaminie oraz do wyproszenia z terenu Spotkania osób nieprzestrzegających zasad bezpieczeństwa lub postanowień niniejszego Regulaminu.</li>
             <li>Organizatorzy zastrzegają sobie prawo do zmiany terminu, miejsca lub zasad Spotkania w wyjątkowych sytuacjach (np. niekorzystne warunki pogodowe), o czym poinformują na stronie <a href="https://fpvsilesia2026.pl/" class="font-medium text-ink underline decoration-gold/50 hover:decoration-ink underline-offset-2">fpvsilesia2026.pl</a>.</li>
@@ -247,7 +328,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          Powrót na stronę główną
+          <span lang="en">Back to the home page</span><span lang="pl">Powrót na stronę główną</span>
         </a>
       </div>
     </div>
@@ -258,14 +339,15 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-3">
-          <img src="/images/logo-mark-tile.svg" alt="Logo FPV Silesia Poland 2026 Freestyle" class="h-10 w-10 rounded-lg" />
+          <img src="/images/logo-mark-tile.svg" alt="FPV Silesia Poland 2026 Freestyle logo" data-en-alt="FPV Silesia Poland 2026 Freestyle logo" data-pl-alt="Logo FPV Silesia Poland 2026 Freestyle" class="h-10 w-10 rounded-lg" />
           <div>
             <div class="font-display font-semibold text-sm">FPV SILESIA POLAND 2026</div>
             <div class="text-xs text-neutral-500">© 2026</div>
           </div>
         </div>
         <div class="text-xs text-neutral-500">
-          Masz pytania? <a href="mailto:fpvsilesiapoland@gmail.com" class="text-ink hover:text-amber">Napisz do nas!</a>
+          <span lang="en">Questions? <a href="mailto:fpvsilesiapoland@gmail.com" class="text-ink hover:text-amber">Email us!</a></span>
+          <span lang="pl">Masz pytania? <a href="mailto:fpvsilesiapoland@gmail.com" class="text-ink hover:text-amber">Napisz do nas!</a></span>
         </div>
       </div>
     </div>

@@ -3,10 +3,12 @@
 
   // Each gallery is a grid element with data-gallery-dir and data-gallery-count;
   // photos are expected at <dir>NNN.jpeg with 480px thumbnails under <dir>thumb/.
-  // data-gallery-label names the edition in the photo alt text.
+  // data-gallery-label names the edition in the photo alt text; a
+  // data-gallery-label-<lang> variant (e.g. data-gallery-label-en) wins when present.
 
-  // The gallery is embedded on the Polish landing page and on the English
-  // recap pages for partners, so every visible string is keyed off <html lang>.
+  // The gallery is embedded on the bilingual landing page and on the English
+  // recap pages for partners, so every visible string is keyed off <html lang>
+  // and refreshed when /i18n.js switches the language ("langchange" event).
   var STRINGS = {
     pl: {
       dialog: 'Galeria zdjęć',
@@ -34,14 +36,21 @@
 
   var T = STRINGS.pl;
 
+  function stringsFor(lang) { return STRINGS[lang === 'en' ? 'en' : 'pl']; }
+
   function pad(n) { return ('00' + n).slice(-3); }
 
   function createGallery(grid) {
     var CONFIG = {
       dir: grid.getAttribute('data-gallery-dir'),
       count: parseInt(grid.getAttribute('data-gallery-count'), 10),
-      label: grid.getAttribute('data-gallery-label') || ''
+      label: labelFor()
     };
+
+    function labelFor() {
+      return grid.getAttribute('data-gallery-label-' + document.documentElement.lang) ||
+        grid.getAttribute('data-gallery-label') || '';
+    }
     var preview = CONFIG.count;
 
     function fullSrc(i) { return CONFIG.dir + pad(i + 1) + '.jpeg'; }
@@ -248,6 +257,14 @@
 
     var countEls = document.querySelectorAll('[data-photo-count="' + grid.id + '"]');
     for (var i = 0; i < countEls.length; i++) countEls[i].textContent = CONFIG.count;
+
+    document.addEventListener('langchange', function () {
+      CONFIG.label = labelFor();
+      var thumbs = grid.querySelectorAll('a[data-index] img');
+      for (var j = 0; j < thumbs.length; j++) thumbs[j].alt = altText(j);
+      // the lightbox bakes its labels in when built; rebuild it on next open
+      if (overlay && !overlay.parentNode) overlay = null;
+    });
   }
 
   /* ---------- styles ---------- */
@@ -303,7 +320,8 @@
     var grids = document.querySelectorAll('[data-gallery-dir]');
     if (!grids.length) return;
 
-    T = STRINGS[document.documentElement.lang === 'en' ? 'en' : 'pl'];
+    T = stringsFor(document.documentElement.lang);
+    document.addEventListener('langchange', function () { T = stringsFor(document.documentElement.lang); });
     injectStyles();
     for (var i = 0; i < grids.length; i++) createGallery(grids[i]);
   }
